@@ -1,2 +1,276 @@
-# Web-prueva
-IA
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta de San Valentín</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --letter-love: 80vh;
+      --letter: white;
+      --heart-color: #ff6b6b;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      position: relative;
+    }
+
+    /* Animación de corazones de fondo */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--heart-color);
+      transform: rotate(45deg);
+      animation: float 10s infinite linear;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: var(--heart-color);
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -5px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      right: -5px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: rotate(45deg) translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(45deg) translateY(-100vh) translateX(50px);
+        opacity: 0;
+      }
+    }
+
+    /* Contenedor principal */
+    .container {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Caja de regalo */
+    .gift-box {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.5s ease;
+    }
+
+    .gift-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .gift-box p {
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(0,0,0,0.3);
+      font-size: 1.2rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { opacity: 0.7; }
+    }
+
+
+    .San_Valentin {
+      position: absolute;
+      width: 90%;
+      font-size: 2rem;
+      font-family: "Te Amo", cursive, "Arial Rounded MT Bold", sans-serif;
+      height: var(--letter-love);
+      transform: translateX(-50%);
+      background: var(--letter);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      padding: 30px;
+      text-align: center;
+      color: #333;
+      opacity: 0;
+      transform: translateX(-50%) translateY(100%);
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 3px dashed #ff6b6b;
+      z-index: 5;
+    }
+
+    .San_Valentin.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .San_Valentin h2 {
+      color: #ff6b6b;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+
+    .San_Valentin p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      margin: 15px 0;
+      color: #555;
+    }
+
+    .San_Valentin img {
+      max-width: 80%;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .heart-animation {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--heart-color);
+      transform: rotate(45deg);
+      opacity: 0;
+      animation: heartBurst 0.8s forwards;
+    }
+
+    .heart-animation::before,
+    .heart-animation::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: var(--heart-color);
+      border-radius: 50%;
+    }
+
+    .heart-animation::before {
+      top: -5px;
+      left: 0;
+    }
+
+    .heart-animation::after {
+      top: 0;
+      right: -5px;
+    }
+
+    @keyframes heartBurst {
+      0% {
+        transform: rotate(45deg) scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(45deg) scale(2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Corazones de fondo -->
+    <div class="heart" style="top: 10%; left: 5%;"></div>
+    <div class="heart" style="top: 25%; left: 80%;"></div>
+    <div class="heart" style="top: 60%; left: 15%;"></div>
+    <div class="heart" style="top: 40%; left: 70%;"></div>
+    <div class="heart" style="top: 80%; left: 30%;"></div>
+    <div class="heart" style="top: 5%; left: 90%;"></div>
+    <div class="heart" style="top: 70%; left: 95%;"></div>
+    <div class="heart" style="top: 30%; left: 5%;"></div>
+    <div class="heart" style="top: 90%; left: 50%;"></div>
+    <div class="heart" style="top: 15%; left: 35%;"></div>
+
+    <!-- Caja de regalo -->
+    <div class="gift-box" id="giftBox">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%E%3Crect x='10' y='10' width='80' height='80' fill='%23e63946'/%3E%3Cpath d='M20,50 L50,20 L80,50 L50,80 Z' fill='%23ffd166'/%3E%3Cpath d='M50,20 L50,80' stroke='%23d90429' stroke-width='2'/%3E%3Cpath d='M20,50 L80,50' stroke='%23d90429' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='15' fill='%23ffd166'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23d90429'/%3E%3C/svg%3E" alt="Caja de regalo">
+      <p>Desliza el listón hacia abajo</p>
+    </div>
+
+    <!-- Tarjeta de San Valentín -->
+    <div class="San_Valentin" id="card">
+      <h2>Para ti ❤️</h2>
+      <p>Eres mi lugar favorito en el mundo.</p>
+      <p>Gracias por cada momento a tu lado.</p>
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Ccircle cx='40' cy='50' r='20' fill='%23e63946'/%3E%3Ccircle cx='160' cy='50' r='20' fill='%23ff6b6b'/%3E%3Cpath d='M40,30 Q50,20 60,30 T80,30' stroke='%23000' stroke-width='2' fill='none'/%3E%3Cpath d='M160,30 Q150,20 140,30 T120,30' stroke='%23000' stroke-width='2' fill='none'/%3E%3Ctext x='40' y='55' font-family='Arial' font-size='12' text-anchor='middle' fill='%23fff'%3E%26%23128052%3B%3C/text%3E%3Ctext x='160' y='55' font-family='Arial' font-size='12' text-anchor='middle' fill='%23fff'%3E%26%23128053%3B%3C/text%3E%3C/svg%3E" alt="Spiderman y Hello Kitty">
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const giftBox = document.getElementById('giftBox');
+      const card = document.getElementById('card');
+      
+      giftBox.addEventListener('click', function() {
+        // Crear animación de corazones
+        for (let i = 0; i < 20; i++) {
+          const heart = document.createElement('div');
+          heart.className = 'heart-animation';
+          
+          // Posición aleatoria alrededor de la caja de regalo
+          const angle = Math.random() * Math.PI * 2;
+          const distance = 50 + Math.random() * 100;
+          const x = 50 + Math.cos(angle) * distance;
+          const y = 50 + Math.sin(angle) * distance;
+          
+          heart.style.left = `${x}%`;
+          heart.style.top = `${y}%`;
+          
+          document.body.appendChild(heart);
+          
+          // Eliminar el corazón después de la animación
+          setTimeout(() => {
+            document.body.removeChild(heart);
+          }, 800);
+        }
+        
+        // Mostrar la tarjeta
+        card.classList.add('show');
+        
+        // Cambiar texto de la caja
+        giftBox.innerHTML = `
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='10' y='10' width='80' height='80' fill='%23e63946'/%3E%3Cpath d='M20,50 L50,20 L80,50 L50,80 Z' fill='%23ffd166'/%3E%3Cpath d='M50,20 L50,80' stroke='%23d90429' stroke-width='2'/%3E%3Cpath d='M20,50 L80,50' stroke='%23d90429' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='15' fill='%23ffd166'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23d90429'/%3E%3C/svg%3E" alt="Caja de regalo">
+          <p>¡¡¡Te Amo!!!</p>
+        `;
+        
+        // Desactivar el evento después de hacer clic
+        giftBox.removeEventListener('click', arguments.callee);
+      });
+    });
+  </script>
+</body>
+</html>
